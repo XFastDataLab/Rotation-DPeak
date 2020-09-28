@@ -20,16 +20,16 @@ The dataset should be given in a text file of the following format:
 -First, prepare the data set, the format is two columns of data, no column number and row number are required.When using malab to read the given mat format data in the project, you can use the `load` function. By default, the variable name of the data matrix is named `points`.
 For instance, the first 10 lines of the sample dataset "data4.mat"(whose data number is 1903 and dimension is 2) are shown as below:
 
--0.520646005085819	0.293612012914928
--0.504458237959391	0.298871658423075
--0.491045758053012	0.271197372056081
--0.483753834975323	0.188044223374019
--0.475571941102939	-0.119416545727582
--0.471517705104794	0.223863418943912
--0.465465827086863	0.273292620992041
--0.463318783566958	0.258764633611583
--0.455461579767554	0.322886076963542
--0.454379381101554	0.301553916376130
+-0.520646005085819	0.293612012914928  
+-0.504458237959391	0.298871658423075  
+-0.491045758053012	0.271197372056081  
+-0.483753834975323	0.188044223374019  
+-0.475571941102939	-0.119416545727582  
+-0.471517705104794	0.223863418943912  
+-0.465465827086863	0.273292620992041  
+-0.463318783566958	0.258764633611583  
+-0.455461579767554	0.322886076963542  
+-0.454379381101554	0.301553916376130  
 
 -Seconnd, prepare a file that calculates the distance between each point in the data set(if you already have this file, please ignore this step).
 Use the "gendist.m" file in the project root directory to calculate the distance between the data points.
