@@ -37,10 +37,57 @@ Use the "gendist.m" file in the project root directory to calculate the distance
 ```matlab
 load('RotationDP_Data\data4.mat');
 ```
-Finally, save the distance calculation result.
+save the distance calculation result.
 ```matlab
 save 'data4_distances' distances;
 ```
+Finally, you will get a three-column data set with the result of calculating the distance between each point.
+
+An example of quick start
+===================================================================================
+Step1:
+Open the startup code `RUN_rotation_dp.m`, and load the data sets we prepared already.
+```matlab
+load('.\RotationDP_Data\data4.mat');
+load('.\RotationDP_Data\data4_distances.mat');
+```
+
+Step2:
+Choose to use method ‘c’ or ‘k’ to select Density Peaks, and adjust parameters(if you don't know how to choose parameters, you can use the default parameters suggested in the notes.).
+```matlab
+%Hyperparameter
+percent=4; %Select the percentage of dc,default:percent=2
+a=3;       %The parameter 'a' of the quadratic curve after rotating the decision chart
+theta=pi/6;%Angle of hyperbola rotation,default:theta=pi/4           
+percent_rho=5;  %Find noise:Take the percent of rho
+percent_delta=5;%Find noise:After take the percent of delta
+
+disp('Starting Rotation-DPeak in c')
+%Method 1: Establish a quadratic equation based on the parameter c and select the density peaks
+c=0.29;     %The parameter 'c' of the quadratic curve after rotating the decision chart
+rotation_dp_c( distances, percent,a,c,points,percent_rho,percent_delta,theta);
+```
+```matlab
+%Hyperparameter
+percent=2; %Select the percentage of dc,default:percent=2
+a=2;       %The parameter 'a' of the quadratic curve after rotating the decision chart
+theta=pi/4;%Angle of hyperbola rotation,default:theta=pi/4           
+percent_rho=5;  %Find noise:Take the percent of rho
+percent_delta=5;%Find noise:After take the percent of delta
+
+disp('Starting Rotation-DPeak in K')
+%Method 2: Establish a quadratic equation based on the parameter k and select the density peaks
+K=6;     %Select the k large points before the previous gamma value in the quadratic curve as the density peaks.
+rotation_dp_k( distances, percent,a,K,points,percent_rho,percent_delta,theta);
+```
+
+Step4:
+-Press the “Run” button in Matlab and the code will be run.
+
+ Output Format
+===================================================================================
+The running result is the decision graph and the Rotation-DPeak result graph.As shown below:
+
 
 
 
